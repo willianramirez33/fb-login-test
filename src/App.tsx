@@ -26,6 +26,7 @@ function App() {
       <FacebookLogin
         appId="1353254835540637"
         scope='email public_profile'
+        initParams={{ version: 'v16.0' }}
         onSuccess={(response) => {
           console.log('Login Success!', response);
         }}
