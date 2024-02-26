@@ -25,6 +25,7 @@ function App() {
       <div style={{ margin: '20px'}}>
       <FacebookLogin
         appId="1353254835540637"
+        scope='email public_profile'
         onSuccess={(response) => {
           console.log('Login Success!', response);
         }}
