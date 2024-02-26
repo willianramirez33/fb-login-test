@@ -1,10 +1,10 @@
-import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+import FacebookLogin from '@greatsumini/react-facebook-login';
+
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
@@ -17,17 +17,25 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <div>
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <div style={{ margin: '20px'}}>
+      <FacebookLogin
+        appId="1353254835540637"
+        onSuccess={(response) => {
+          console.log('Login Success!', response);
+        }}
+        onFail={(error) => {
+          console.log('Login Failed!', error);
+        }}
+        onProfileSuccess={(response) => {
+          console.log('Get Profile Success!', response);
+        }}
+      />
+      </div>
     </>
   )
 }
